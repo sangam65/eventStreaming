@@ -10,9 +10,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.eventStreaming.ProducerApp.model.TemperatureEvent;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ScheduledService {
     private final EventProducerService eventProducerService;
 
@@ -21,7 +23,7 @@ public class ScheduledService {
         List<String>locations=List.of("Delhi","Mumbai","Kolkata","Chennai","Dehdradun");
         List<Double>temp=List.of(35.6,32.5,33.98,39.45,25.56);
             Random random = new Random();
-
+        // log.info("scheduler running");
        for(int i=0; i<10; i++){
         Map<String,Object> mp = new HashMap<>();
         int tempIndex = random.nextInt(temp.size());

@@ -14,12 +14,11 @@ import lombok.RequiredArgsConstructor;
 public class EventProducerService {
 
     private final KafkaTemplate<String,Object> kafkaTemplate;
-    // @Transactional("kafkaTransactionManager")
+   
     public void sendTemperature(TemperatureEvent temperatureEvent){
         String key = "sensor_" + temperatureEvent.getSensorId();
         kafkaTemplate.send("temperature-events",key,temperatureEvent);
     }
-    // @Transactional("kafkaTransactionManager")
     public void sendHumidity(HumidityEvent humidityEvent){
           String key = "sensor_" + humidityEvent.getSensorId();
         kafkaTemplate.send("humidity-events",key,humidityEvent);
