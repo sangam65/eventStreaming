@@ -7,14 +7,20 @@ import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
 public class TopicsCreationConfig {
- 
+
     @Bean
-    NewTopic createTemperatureTopic(){
-        return TopicBuilder.name("temperature-events").build();
+    NewTopic createTemperatureTopic() {
+        return TopicBuilder.name("temperature-events")
+                .partitions(10)
+                .replicas(3)
+                .build();
     }
 
     @Bean
-    NewTopic createHumidityTopic(){
-        return TopicBuilder.name("humidity-events").build();
+    NewTopic createHumidityTopic() {
+        return TopicBuilder.name("humidity-events")
+                .partitions(10)
+                .replicas(3)
+                .build();
     }
 }
