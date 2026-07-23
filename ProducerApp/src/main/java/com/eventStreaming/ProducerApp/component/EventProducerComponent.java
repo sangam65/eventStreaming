@@ -1,7 +1,8 @@
-package com.eventStreaming.ProducerApp.service;
+package com.eventStreaming.ProducerApp.component;
 
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
 // import org.springframework.transaction.annotation.Transactional;
 
 import com.eventStreaming.ProducerApp.model.HumidityEvent;
@@ -9,9 +10,9 @@ import com.eventStreaming.ProducerApp.model.TemperatureEvent;
 
 import lombok.RequiredArgsConstructor;
 
-@Service
+@Component
 @RequiredArgsConstructor
-public class EventProducerService {
+public class EventProducerComponent {
 
     private final KafkaTemplate<String,Object> kafkaTemplate;
    

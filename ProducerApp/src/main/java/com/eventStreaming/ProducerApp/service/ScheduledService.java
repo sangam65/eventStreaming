@@ -8,6 +8,8 @@ import java.util.Random;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import com.eventStreaming.ProducerApp.component.EventProducerComponent;
 import com.eventStreaming.ProducerApp.model.TemperatureEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class ScheduledService {
-    private final EventProducerService eventProducerService;
+    private final EventProducerComponent eventProducerService;
 
     @Scheduled(fixedRate = 1) // every ms 10 events
     public void sendTemperateEvents(){
